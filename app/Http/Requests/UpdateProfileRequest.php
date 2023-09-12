@@ -42,7 +42,7 @@ class UpdateProfileRequest extends FormRequest
             'company' => [
                 'required', 'string', 'max:255'
             ],
-            
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
 }

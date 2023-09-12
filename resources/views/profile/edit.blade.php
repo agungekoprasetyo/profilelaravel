@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('profile.update') }}">
+                    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
 
@@ -84,6 +84,14 @@
                             </div>
                         </div>
 
+                        <div class="mb-3">
+                            <label class="form-label" for="inputImage">Image:</label>
+                            <input type="file" name="image" id="inputImage" class="form-control @error('image') is-invalid @enderror">
+
+                            @error('image')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

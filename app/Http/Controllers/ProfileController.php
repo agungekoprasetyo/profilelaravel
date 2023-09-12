@@ -24,6 +24,14 @@ class ProfileController extends Controller
 
     public function update(UpdateProfileRequest $request)
     {
+
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $fileName = time() . '.' . $request->image->extension();
+        $request->image->storeAs('public/upload', $fileName);
+
         $request->user()->update(
             $request->all()
         );
