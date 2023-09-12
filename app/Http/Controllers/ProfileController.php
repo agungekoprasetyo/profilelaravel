@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+
+    public function index(Request $request)
+    {
+        return view('profile.index', [
+            'user' => $request->user()
+        ]);
+    }
+
     public function edit(Request $request)
     {
         return view('profile.edit', [
@@ -20,6 +28,6 @@ class ProfileController extends Controller
             $request->all()
         );
 
-        return redirect()->route('profile.edit');
+        return redirect()->route('profile');
     }
 }
