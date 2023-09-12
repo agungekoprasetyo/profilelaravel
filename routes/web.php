@@ -22,4 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    // Route::get('dokumen', [App\Http\Controllers\DokumenController::class, 'edit'])->name('profile.edit');
+    Route::get('dokumen', [App\Http\Controllers\DokumenController::class, 'index'])->name('dokumen');
+    Route::post('dokumen', [App\Http\Controllers\DokumenController::class, 'upload'])->name('dokumen.upload');
 });
